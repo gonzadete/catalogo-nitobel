@@ -3,6 +3,11 @@ const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:8080";
 // Obtener todos los menús
 export async function fetchAllMenus() {
   const response = await fetch(`${API_URL}/menu`);
+  if (!response.ok) {
+    throw new Error(
+      `No se pudieron cargar los menús (status ${response.status} en ${API_URL}/menu)`,
+    );
+  }
   const data = await response.json();
   return data;
 }
@@ -10,6 +15,9 @@ export async function fetchAllMenus() {
 // Obtener un menú específico
 export async function fetchMenuById(id) {
   const response = await fetch(`${API_URL}/menu/${id}`);
+  if (!response.ok) {
+    throw new Error(`No se pudo cargar el menú ${id} (status ${response.status})`);
+  }
   const data = await response.json();
   return data;
 }
@@ -17,6 +25,11 @@ export async function fetchMenuById(id) {
 // Obtener opciones de un menú
 export async function fetchOpciones(id) {
   const response = await fetch(`${API_URL}/opciones/${id}`);
+  if (!response.ok) {
+    throw new Error(
+      `No se pudieron cargar las opciones del menú ${id} (status ${response.status})`,
+    );
+  }
   const data = await response.json();
   return data;
 }
