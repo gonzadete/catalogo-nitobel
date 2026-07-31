@@ -1,0 +1,44 @@
+/* inter font family */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import "tailwindcss";
+
+#root {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Body Styles */
+body {
+  background-color: #faf8f8;
+  color: #121213;
+  font-family: Inter, sans-serif;
+}
+
+@layer components {
+  .sub-menu {
+    position: absolute;
+    top: 4.2rem;
+    padding: 3.75px;
+    border-radius: 0.375rem;
+    transform-origin: 50% -170px;
+    backdrop-filter: blur(8px);
+    background-color: #f8e6e6ee;
+  }
+}
+
+/* Utilities Style */
+@layer utilities {
+  .flex-center {
+    display: flex;
+    align-items: center;
+  }
+  .flex-center-between {
+    /* @apply flex items-center justify-between;     */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+}

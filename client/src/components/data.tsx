@@ -1,0 +1,31 @@
+import {
+  FaHome,
+  FaUser,
+  FaCog,
+  FaEnvelope,
+  FaBell,
+  FaChartLine,
+  FaCalendar,
+  FaBook,
+  FaFile,
+  FaSearch,
+  FaHeart,
+  FaStar,
+  FaQuestionCircle,
+} from "react-icons/fa"; 
+
+export const menuItems = [
+  { icon: <FaHome />, text: "Home", to: "/" },
+  { icon: <FaFile />, text: "Productos", to: "/produc" },
+  { icon: <FaUser />, text: "Perfil" },
+  { icon: <FaCog />, text: "Parámetros", to: "/param" },
+  { icon: <FaEnvelope />, text: "Messages" },
+  { icon: <FaBell />, text: "Notifications" },
+  { icon: <FaChartLine />, text: "Analytics" },
+  { icon: <FaCalendar />, text: "Calendar" },
+  { icon: <FaBook />, text: "Library" },
+  { icon: <FaSearch />, text: "Search" },
+  { icon: <FaHeart />, text: "Favorites" },
+  { icon: <FaStar />, text: "Starred" },
+  { icon: <FaQuestionCircle />, text: "Help" },
+];

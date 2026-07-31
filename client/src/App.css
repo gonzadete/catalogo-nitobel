@@ -1,0 +1,33 @@
+/* #root {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+} */
+
+@media (max-width: 920px) {
+  .catalog-banner__title {
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .catalog-modal__arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .catalog-banner__content,
+  .catalog-banner__aside {
+    padding: 1.25rem;
+  }
+
+  .catalog-banner__actions {
+    flex-direction: column;
+  }
+
+  .catalog-banner__button {
+    width: 100%;
+  }
+}
