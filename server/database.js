@@ -8,6 +8,11 @@ const pool = mysql.createPool({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   port: process.env.DB_PORT,
+  // Aiven (y la mayoria de MySQL administrados) exigen TLS; localhost no lo necesita
+  ssl:
+    process.env.DB_HOST && process.env.DB_HOST !== "127.0.0.1" && process.env.DB_HOST !== "localhost"
+      ? { rejectUnauthorized: false }
+      : undefined,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,

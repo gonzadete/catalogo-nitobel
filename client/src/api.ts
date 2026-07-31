@@ -16,7 +16,9 @@ export async function fetchAllMenus() {
 export async function fetchMenuById(id) {
   const response = await fetch(`${API_URL}/menu/${id}`);
   if (!response.ok) {
-    throw new Error(`No se pudo cargar el menú ${id} (status ${response.status})`);
+    throw new Error(
+      `No se pudo cargar el menú ${id} (status ${response.status})`,
+    );
   }
   const data = await response.json();
   return data;
