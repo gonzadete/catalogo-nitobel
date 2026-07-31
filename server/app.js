@@ -13,7 +13,13 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 
-const allowedOrigins = ["http://127.0.0.1:5173", "http://localhost:5173"];
+// Orígenes fijos de desarrollo + los que se agreguen por variable de entorno
+// FRONTEND_URL admite una o varias URLs separadas por coma (ej: producción y previews)
+const allowedOrigins = [
+  "http://127.0.0.1:5173",  
+  "http://localhost:5173",
+  ...(process.env.FRONTEND_URL?.split(",").map((url) => url.trim()) ?? []),
+];
 
 const corsOptions = {
   origin: (origin, callback) => {
@@ -170,6 +176,8 @@ app.post("/produc", createProductoHandler);
 app.put("/productos/:id", updateProductoHandler);
 app.delete("/productos/:id", deleteProductoHandler);
 
-app.listen(8080, () => {
-  console.log("Server is running on port 8080");
+// Railway asigna el puerto dinámicamente vía process.env.PORT
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
